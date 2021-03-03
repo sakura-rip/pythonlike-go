@@ -3,7 +3,7 @@ package pythonlike_go
 //List is python like object dictionary in Golang
 type Dict map[interface{}]interface{}
 
-func NewMap() Dict {
+func NewDict() Dict {
 	return Dict{}
 }
 
@@ -23,7 +23,7 @@ func (d Dict) Keys() []interface{} {
 
 //Remove all items from the dictionary
 func (d *Dict) Clear() {
-	*d = NewMap()
+	*d = NewDict()
 }
 
 //Check is the key exist

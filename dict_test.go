@@ -11,7 +11,7 @@ var (
 )
 
 func init() {
-	ma = NewMap()
+	ma = NewDict()
 	ma["hoge"] = "hage"
 	ma["fifi"] = "fasjfa"
 }
