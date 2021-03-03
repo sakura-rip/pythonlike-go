@@ -70,3 +70,13 @@ func (l *List) Pop(idx ...int) (interface{}, error) {
 func (l *List) Clear() {
 	*l = NewList()
 }
+
+func (l List) Count(element interface{}) int {
+	count := 0
+	for _, v := range l {
+		if v == element {
+			count++
+		}
+	}
+	return count
+}
