@@ -43,6 +43,7 @@ func (l *List) Insert(idx int, element interface{}) error {
 	*l = append(list[:idx], append([]interface{}{element}, list[idx:]...)...)
 	return nil
 }
+
 func (l List) getLastIndex() int {
 	return l.Length() - 1
 }
