@@ -7,7 +7,7 @@ import (
 
 func TestList_Insert(t *testing.T) {
 	list := List{"hoge", "hage"}
-	err := list.Insert(3, "hi")
+	err := list.Insert(2, "hi")
 	if err != nil {
 		t.Error(err)
 	}
