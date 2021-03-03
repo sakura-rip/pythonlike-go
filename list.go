@@ -4,6 +4,10 @@ import "fmt"
 
 type List []interface{}
 
+func NewList() List {
+	return List{}
+}
+
 func (l List) Index(element interface{}) int {
 	for k, v := range l {
 		if element == v {
