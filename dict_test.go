@@ -1,4 +1,4 @@
-package pythonlike_go
+package pythonlikego
 
 import (
 	"fmt"

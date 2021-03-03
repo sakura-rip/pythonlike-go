@@ -1,4 +1,4 @@
-package pythonlike_go
+package pythonlikego
 
 //List is python like object dictionary in Golang
 type Dict map[interface{}]interface{}
