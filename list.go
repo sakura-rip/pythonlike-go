@@ -36,6 +36,6 @@ func (l *List) Insert(idx int, element interface{}) error {
 		return fmt.Errorf("index out of range")
 	}
 	list := []interface{}(*l)
-	*l = append(list[:idx], append([]interface{}{element}, list[idx:]))
+	*l = append(list[:idx], append([]interface{}{element}, list[idx:]...)...)
 	return nil
 }
