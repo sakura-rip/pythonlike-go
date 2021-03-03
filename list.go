@@ -80,3 +80,7 @@ func (l List) Count(element interface{}) int {
 	}
 	return count
 }
+
+func (l List) Copy() List {
+	return l
+}
