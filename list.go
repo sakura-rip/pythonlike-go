@@ -22,6 +22,10 @@ func (l *List) Remove(element interface{}) error {
 	if idx == -1 {
 		return fmt.Errorf("element not found")
 	}
+	return l.removeByIndex(idx)
+}
+
+func (l *List) removeByIndex(idx int) error {
 	list := []interface{}(*l)
 	*l = append(list[:idx], list[idx+1:]...)
 	return nil
