@@ -43,3 +43,12 @@ func (l *List) Insert(idx int, element interface{}) error {
 	*l = append(list[:idx], append([]interface{}{element}, list[idx:]...)...)
 	return nil
 }
+
+func (l *List) Pop(element ...interface{}) (interface{}, error) {
+	if ll := len(element); ll == 0 {
+		return element, l.removeByIndex(l.Length() - 1)
+	} else if ll > 1 {
+		return nil, fmt.Errorf("only 1 or 0 arguments are allowed")
+	}
+	return element, l.Remove(element)
+}
