@@ -33,6 +33,7 @@ func (d Dict) IsKeyExist(key interface{}) bool {
 }
 
 //Return the value for key if key is in the dictionary, else default.
+//TODO:dont require dv
 func (d Dict) Get(key, dv interface{}) interface{} {
 	val, ok := d[key]
 	if !ok {
@@ -41,6 +42,8 @@ func (d Dict) Get(key, dv interface{}) interface{} {
 	return val
 }
 
+//If key is in the dictionary, remove it and return its value, else return default.
+//TODO:dont require dv
 func (d Dict) Pop(key, dv interface{}) interface{} {
 	val, ok := d[key]
 	if ok {
@@ -61,6 +64,7 @@ func (d Dict) PopItem() (interface{}, interface{}) {
 
 //If key is in the dictionary, return its value.
 //If not, insert key with a value of default and return default. default defaults to Nil.
+//TODO:dont require value
 func (d Dict) SetDefault(key, value interface{}) interface{} {
 	if d.IsKeyExist(key) {
 		return d[key]
