@@ -32,7 +32,7 @@ func (l List) Length() int {
 }
 
 func (l *List) Insert(idx int, element interface{}) error {
-	if l.Length() < idx {
+	if l.Length() < idx || idx < 0 {
 		return fmt.Errorf("index out of range")
 	}
 	list := []interface{}(*l)
