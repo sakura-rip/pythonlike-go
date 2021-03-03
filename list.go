@@ -44,11 +44,17 @@ func (l *List) Insert(idx int, element interface{}) error {
 	return nil
 }
 
-func (l *List) Pop(element ...interface{}) (interface{}, error) {
-	if ll := len(element); ll == 0 {
-		return element, l.removeByIndex(l.Length() - 1)
-	} else if ll > 1 {
+func (l *List) Pop(idx ...int) (interface{}, error) {
+	index := l.getLastIndex()
+	if ll := len(idx); ll > 1 {
 		return nil, fmt.Errorf("only 1 or 0 arguments are allowed")
+	} else if ll == 0 {
+		//	下の条件分岐でINDEX ERRORが起きないように
+	} else if idx[0] > index {
+		return nil, fmt.Errorf("index out of range")
+	} else {
+		index = idx[0]
 	}
-	return element, l.Remove(element)
+	element := []interface{}(*l)[index]
+	return element, l.removeByIndex(index)
 }
