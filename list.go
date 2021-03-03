@@ -62,3 +62,7 @@ func (l *List) Pop(idx ...int) (interface{}, error) {
 	element := []interface{}(*l)[index]
 	return element, l.removeByIndex(index)
 }
+
+func (l *List) Clear() {
+	*l = NewList()
+}
