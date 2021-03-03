@@ -54,15 +54,23 @@ func (l List) getLastIndex() int {
 
 func (l *List) Pop(idx ...int) (interface{}, error) {
 	index := l.getLastIndex()
-	if ll := len(idx); ll > 1 {
+	ll := len(idx)
+
+	if ll > 1 {
 		return nil, fmt.Errorf("only 1 or 0 arguments are allowed")
-	} else if ll == 0 {
-		//	下の条件分岐でINDEX ERRORが起きないように
-	} else if idx[0] > index {
-		return nil, fmt.Errorf("index out of range")
-	} else {
-		index = idx[0]
 	}
+
+	// in case of `l.Pop()`
+	if ll == 0 {
+		element := []interface{}(*l)[index]
+		return element, l.removeByIndex(index)
+	}
+
+	if idx[0] > index {
+		return nil, fmt.Errorf("index out of range")
+	}
+
+	index = idx[0]
 	element := []interface{}(*l)[index]
 	return element, l.removeByIndex(index)
 }
