@@ -2,7 +2,7 @@ package pythonlike_go
 
 import "fmt"
 
-//List is python like object in Golang
+//List is python like list object in Golang
 type List []interface{}
 
 //NewList create new list
