@@ -1,6 +1,6 @@
 package pythonlikego
 
-//List is python like object dictionary in Golang
+//Dict is python like object dictionary in Golang
 type Dict map[interface{}]interface{}
 
 func NewDict() Dict {
