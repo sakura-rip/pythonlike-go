@@ -31,5 +31,11 @@ This is where this library comes in.
 ```go
 list.Remove("item")
 ```
-このように、PythonのようにListなどを操作することができます。  
 In this way, you can manipulate Lists and other objects as in Python.  
+このように、PythonのようにListなどを操作することができます。  
+
+
+We're still developing!
+まだまだ開発中です！
+Stay tuned for developments!
+発展をご期待ください！
