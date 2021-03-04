@@ -35,7 +35,7 @@ In this way, you can manipulate Lists and other objects as in Python.
 このように、PythonのようにListなどを操作することができます。  
 
 
-We're still developing!
-まだまだ開発中です！
-Stay tuned for developments!
-発展をご期待ください！
+We're still developing!  
+まだまだ開発中です！  
+Stay tuned for developments!  
+発展をご期待ください！  
