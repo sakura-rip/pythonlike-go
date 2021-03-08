@@ -58,6 +58,13 @@ func (list *List) removeByIndex(idx int) error {
 	return nil
 }
 
+func (list List) getByIndex(idx int) interface{} {
+	if list.getLastIndex() < idx {
+		return nil
+	}
+	return list[idx]
+}
+
 //Length get the length of list
 func (list List) Length() int {
 	return len(list)

@@ -11,3 +11,7 @@ func (li ListIter) HasNext() bool {
 	}
 	return false
 }
+
+func (li ListIter) Next() interface{} {
+	return li.List.getByIndex(li.Idx)
+}
