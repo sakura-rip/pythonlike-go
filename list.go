@@ -14,6 +14,18 @@ func NewList() List {
 	return List{}
 }
 
+func NewListFrom(val ...interface{}) List {
+	list := NewList()
+	for _, v := range val {
+		list.Append(v)
+	}
+	return list
+}
+
+func NewListFromSlice(slice []interface{}) List {
+	return NewListFrom(slice...)
+}
+
 //Index return zero-based index in the list of the first item whose value is equal to x.
 //return -1 if there is no such item.
 func (list List) Index(element interface{}) int {
