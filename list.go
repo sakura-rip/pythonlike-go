@@ -1,6 +1,10 @@
 package pythonlikego
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 //List is python like list object in Golang
 type List []interface{}
