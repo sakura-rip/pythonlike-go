@@ -214,3 +214,11 @@ func (list List) Iter() ListIter {
 		List: &list,
 	}
 }
+
+//Contains Check if the item exists
+func (list List) Contains(item interface{}) bool {
+	if list.Count(item) == 0 {
+		return false
+	}
+	return true
+}
