@@ -166,3 +166,11 @@ func (list List) Sum() int {
 	}
 	return sum
 }
+
+func (list List) ToString() string {
+	var str string
+	for _, val := range list {
+		str += fmt.Sprintf("%v", val)
+	}
+	return str
+}
