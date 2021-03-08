@@ -98,8 +98,8 @@ func (list *List) Pop(idx ...int) (interface{}, error) {
 	}
 
 	// in case of `list.Pop()`
+	element := []interface{}(*list)[index]
 	if ll == 0 {
-		element := []interface{}(*list)[index]
 		return element, list.removeByIndex(index)
 	}
 
@@ -108,7 +108,6 @@ func (list *List) Pop(idx ...int) (interface{}, error) {
 	}
 
 	index = idx[0]
-	element := []interface{}(*list)[index]
 	return element, list.removeByIndex(index)
 }
 
