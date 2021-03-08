@@ -207,3 +207,9 @@ func (list List) Equal(other List) bool {
 	}
 	return true
 }
+
+func (list List) Iter() ListIter {
+	return ListIter{
+		List: &list,
+	}
+}
