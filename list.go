@@ -133,7 +133,7 @@ func (list List) RandomChoice() interface{} {
 }
 
 //RandomChoices Return a length sized list of elements chosen from the population with replacement.
-func (list List) RandomChoices(length int) interface{} {
+func (list List) RandomChoices(length int) []interface{} {
 	var result []interface{}
 	for i := 0; i < length; i++ {
 		result = append(result, list.RandomChoice())
