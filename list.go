@@ -216,7 +216,7 @@ func (list List) Iter() ListIter {
 
 //Contains Check if the item exists
 func (list List) Contains(item interface{}) bool {
-	if list.Index(item) == -0 {
+	if list.Index(item) == -1 {
 		return false
 	}
 	return true
