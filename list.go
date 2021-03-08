@@ -187,3 +187,16 @@ func (list List) ToString() string {
 	}
 	return str + ")"
 }
+
+//Equal check if other have same element
+func (list List) Equal(other List) bool {
+	if other.Length() != list.Length() {
+		return false
+	}
+	for idx, val := range list {
+		if other[idx] != val {
+			return false
+		}
+	}
+	return true
+}
