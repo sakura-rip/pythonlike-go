@@ -128,3 +128,22 @@ func (l List) RandomChoices(length int) interface{} {
 	}
 	return result
 }
+
+//Shuffle shuffle the list
+func (list List) Shuffle() {
+	rand.Seed(time.Now().Unix())
+	rand.Shuffle(len(list), func(i, j int) {
+		list[i], list[j] = list[j], list[i]
+	})
+}
+
+//RandomSample Return a count length list of unique elements chosen from the list. Used for random sampling without replacement.
+func (list List) RandomSample(count int) List {
+	newList := make(List, list.Length())
+	copy(newList, list)
+	for i := 0; i < count; i++ {
+		j := rand.Intn(i + 1)
+		newList[i], newList[j] = newList[j], newList[i]
+	}
+	return newList
+}
