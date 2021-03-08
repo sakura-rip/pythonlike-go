@@ -5,6 +5,7 @@ type ListIter struct {
 	Idx  int
 }
 
+//HasNext check if ListIter has next value
 func (li ListIter) HasNext() bool {
 	if li.Idx < li.List.getLastIndex() {
 		return true
@@ -12,6 +13,8 @@ func (li ListIter) HasNext() bool {
 	return false
 }
 
+//Next Retrieve the next item from the iterator.
+//if the iterator is exhausted, nil returned,
 func (li ListIter) Next() interface{} {
 	return li.List.getByIndex(li.Idx)
 }
