@@ -16,5 +16,7 @@ func (li ListIter) HasNext() bool {
 //Next Retrieve the next item from the iterator.
 //if the iterator is exhausted, nil returned,
 func (li ListIter) Next() interface{} {
-	return li.List.getByIndex(li.Idx)
+	item := li.List.getByIndex(li.Idx)
+	li.Idx++
+	return item
 }
