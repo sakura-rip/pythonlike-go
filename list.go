@@ -147,3 +147,11 @@ func (list List) RandomSample(count int) List {
 	}
 	return newList
 }
+
+//Extend extend the list by appending all the items from lst.
+func (list *List) Extend(lst List) {
+	list_ := []interface{}(*list)
+	for _, v := range lst {
+		*list = append(list_, v)
+	}
+}
