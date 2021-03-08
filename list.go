@@ -151,9 +151,7 @@ func (list List) RandomSample(count int) List {
 //Extend extend the list by appending all the items from lst.
 func (list *List) Extend(lst List) {
 	list_ := []interface{}(*list)
-	for _, v := range lst {
-		*list = append(list_, v)
-	}
+	*list = append(list_, lst...)
 }
 
 //Sum start and the items of a list from left to right and returns the total.
