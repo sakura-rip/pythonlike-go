@@ -7,7 +7,7 @@ type ListIter struct {
 
 //HasNext check if ListIter has next value
 func (li ListIter) HasNext() bool {
-	if li.Idx < li.List.getLastIndex() {
+	if li.Idx <= li.List.getLastIndex() {
 		return true
 	}
 	return false
