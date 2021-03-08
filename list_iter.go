@@ -2,5 +2,5 @@ package pythonlikego
 
 type ListIter struct {
 	List *List
-	Idx  int64
+	Idx  int
 }
