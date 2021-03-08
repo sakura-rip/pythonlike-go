@@ -155,3 +155,16 @@ func (list *List) Extend(lst List) {
 		*list = append(list_, v)
 	}
 }
+
+//Sum start and the items of a list from left to right and returns the total.
+func (list List) Sum() int {
+	var sum int
+	for _, val := range list {
+		intVal, ok := val.(int)
+		if !ok {
+			continue
+		}
+		sum += intVal
+	}
+	return sum
+}
