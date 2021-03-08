@@ -109,3 +109,18 @@ func (l List) Count(element interface{}) int {
 func (l List) Copy() List {
 	return l
 }
+
+//RandomChoice Return a random element from the list
+func (l List) RandomChoice() interface{} {
+	rand.Seed(time.Now().Unix())
+	return l[rand.Intn(len(l))]
+}
+
+//RandomChoices Return a length sized list of elements chosen from the population with replacement.
+func (l List) RandomChoices(length int) interface{} {
+	var result []interface{}
+	for i := 0; i < length; i++ {
+		result = append(result, l.RandomChoice())
+	}
+	return result
+}
