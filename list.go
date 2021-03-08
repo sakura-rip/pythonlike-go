@@ -208,6 +208,7 @@ func (list List) Equal(other List) bool {
 	return true
 }
 
+//Iter return ListIter struct for iterate
 func (list List) Iter() ListIter {
 	return ListIter{
 		List: &list,
