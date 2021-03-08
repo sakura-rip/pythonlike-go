@@ -16,8 +16,8 @@ func NewList() List {
 
 //Index return zero-based index in the list of the first item whose value is equal to x.
 //return -1 if there is no such item.
-func (l List) Index(element interface{}) int {
-	for k, v := range l {
+func (list List) Index(element interface{}) int {
+	for k, v := range list {
 		if element == v {
 			return k
 		}
@@ -26,62 +26,62 @@ func (l List) Index(element interface{}) int {
 }
 
 // Add an item to the end of the list.
-func (l *List) Append(element interface{}) {
-	*l = append(*l, element)
+func (list *List) Append(element interface{}) {
+	*list = append(*list, element)
 }
 
 //Remove the first item from the list whose value is equal to x. It returns an error if there is no such item.
-func (l *List) Remove(element interface{}) error {
-	idx := l.Index(element)
+func (list *List) Remove(element interface{}) error {
+	idx := list.Index(element)
 	if idx == -1 {
 		return fmt.Errorf("element not found")
 	}
-	return l.removeByIndex(idx)
+	return list.removeByIndex(idx)
 }
 
 //removeByIndex remove selected index from list
-func (l *List) removeByIndex(idx int) error {
-	list := []interface{}(*l)
-	*l = append(list[:idx], list[idx+1:]...)
+func (list *List) removeByIndex(idx int) error {
+	list_ := []interface{}(*list)
+	*list = append(list_[:idx], list_[idx+1:]...)
 	return nil
 }
 
 //Length get the length of list
-func (l List) Length() int {
-	return len(l)
+func (list List) Length() int {
+	return len(list)
 }
 
 //Insert an item at a given position.
 //The first argument is the index of the element before which to insert,
 //so a.Insert(0, x) inserts at the front of the list,
 //and a.Insert(len(a)-1, x) is equivalent to a.Append(x).
-func (l *List) Insert(idx int, element interface{}) error {
-	if l.Length() < idx || idx < 0 {
+func (list *List) Insert(idx int, element interface{}) error {
+	if list.Length() < idx || idx < 0 {
 		return fmt.Errorf("index out of range")
 	}
-	list := []interface{}(*l)
-	*l = append(list[:idx], append([]interface{}{element}, list[idx:]...)...)
+	list_ := []interface{}(*list)
+	*list = append(list_[:idx], append([]interface{}{element}, list_[idx:]...)...)
 	return nil
 }
 
-func (l List) getLastIndex() int {
-	return l.Length() - 1
+func (list List) getLastIndex() int {
+	return list.Length() - 1
 }
 
 //Pop remove the item at the given position in the list, and return it.
 //If no index is specified, a.Pop() removes and returns the last item in the list.
-func (l *List) Pop(idx ...int) (interface{}, error) {
-	index := l.getLastIndex()
+func (list *List) Pop(idx ...int) (interface{}, error) {
+	index := list.getLastIndex()
 	ll := len(idx)
 
 	if ll > 1 {
 		return nil, fmt.Errorf("only 1 or 0 arguments are allowed")
 	}
 
-	// in case of `l.Pop()`
+	// in case of `list.Pop()`
 	if ll == 0 {
-		element := []interface{}(*l)[index]
-		return element, l.removeByIndex(index)
+		element := []interface{}(*list)[index]
+		return element, list.removeByIndex(index)
 	}
 
 	if idx[0] > index {
@@ -89,19 +89,19 @@ func (l *List) Pop(idx ...int) (interface{}, error) {
 	}
 
 	index = idx[0]
-	element := []interface{}(*l)[index]
-	return element, l.removeByIndex(index)
+	element := []interface{}(*list)[index]
+	return element, list.removeByIndex(index)
 }
 
 //Clear remove all items from the list
-func (l *List) Clear() {
-	*l = NewList()
+func (list *List) Clear() {
+	*list = NewList()
 }
 
 //Count Return the number of times x appears in the list.
-func (l List) Count(element interface{}) int {
+func (list List) Count(element interface{}) int {
 	count := 0
-	for _, v := range l {
+	for _, v := range list {
 		if v == element {
 			count++
 		}
@@ -110,21 +110,21 @@ func (l List) Count(element interface{}) int {
 }
 
 //Copy Return a shallow copy of the list
-func (l List) Copy() List {
-	return l
+func (list List) Copy() List {
+	return list
 }
 
 //RandomChoice Return a random element from the list
-func (l List) RandomChoice() interface{} {
+func (list List) RandomChoice() interface{} {
 	rand.Seed(time.Now().Unix())
-	return l[rand.Intn(len(l))]
+	return list[rand.Intn(len(list))]
 }
 
 //RandomChoices Return a length sized list of elements chosen from the population with replacement.
-func (l List) RandomChoices(length int) interface{} {
+func (list List) RandomChoices(length int) interface{} {
 	var result []interface{}
 	for i := 0; i < length; i++ {
-		result = append(result, l.RandomChoice())
+		result = append(result, list.RandomChoice())
 	}
 	return result
 }
