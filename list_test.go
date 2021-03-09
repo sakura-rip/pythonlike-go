@@ -17,8 +17,8 @@ func TestList_Insert(t *testing.T) {
 func TestList_Insert2(t *testing.T) {
 	list := List{"hoge", "hage"}
 	err := list.Insert(-1, "hi")
-	if err != nil {
-		t.Error(err)
+	if err == nil {
+		t.Error("INDEX OUT OF RANGE!!!!!!!!")
 	}
 	fmt.Println(list)
 }
